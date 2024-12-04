@@ -1,0 +1,113 @@
+
+.container {
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 30px;
+    height: 350px;
+    width: 80%;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+}
+
+p.search {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#results-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+#movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pagination-btn {
+    display: flex;
+    justify-content: center;
+    margin: 3%;
+    padding: 3%;
+    border-radius: 20px;
+}
+
+.movie {
+    background-color: rgba(237, 215, 230, 0.8);
+    border-radius: 20px;
+    cursor: pointer;
+    width: 250px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.movie h5 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.movie p {
+    font-size: 0.9em;
+    text-align: center;
+    color: white;
+}
+
+#movie-details {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+.movie-detail-card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.movie-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.movie-poster img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie-info p {
+    font-size: 1em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.movie-info strong {
+    color: white;
+}
