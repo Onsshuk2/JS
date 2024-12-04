@@ -1,0 +1,21 @@
+
+label {
+    
+    
+    font-weight: bold;
+}
+
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 20px;
+    background-color: #f3f4f6;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./bootstrap (3).css">
+</head>
+
+<body>
+    <div id="colorForm " class="btnn m-5 p-2" style="background-color:rgb(237, 215, 230,0.2); border-radius: 20px; text-align: center;">
+        <label>
+            Color Name:
+            <input type="text" id="colorName" class="form-control" placeholder="Unique name (e.g., SkyBlue)" required>
+        </label>
+        <div class="error" id="nameError"></div>
+        <div>
+            <label>
+                Color Type:
+                <select id="colorType" class="form-control">
+                    <option value="RGB">RGB</option>
+                    <option value="RGBA">RGBA</option>
+                    <option value="HEX">HEX</option>
+                </select>
+        </div>
+
+        </label>
+        <div>
+            <label>
+                Color Code:
+                <input type="text" id="colorCode" class="form-control" placeholder="e.g., #FF5733 or rgb(255,0,0)"
+                    required>
+            </label>
+        </div>
+
+        <div class="error" id="codeError"></div>
+        <button type="button" class="btn btn-outline-light mt-3" onclick="addCard()">Save</button>
+    </div>
+    <div id="cards" class="btnn m-4 p-2" style=" border-radius: 20px;"></div>
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
