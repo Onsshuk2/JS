@@ -1,94 +1,65 @@
-function loadCase() {
-    const data = localStorage.getItem("cases");
+const todoInput = document.getElementById('todo-input');
+        const addTodoButton = document.getElementById('add-todo');
+        const todoList = document.getElementById('todo-list');
+        const clearListButton = document.getElementById('clear-list');
 
-    if (data) {
-        printTable(JSON.parse(data));
-    }
-}
+        function loadTodos() {
+            const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+            savedTodos.forEach(todo => {
+                createTodoElement(todo.text, todo.completed);
+            });
+        }
 
-function deleteCase(number) {
-    const cases = localStorage.getItem("cases");
+        function saveTodos() {
+            const todos = Array.from(todoList.children).map(todo => ({
+                text: todo.querySelector('.todo-text').textContent,
+                completed: todo.classList.contains('completed')
+            }));
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
 
-    if (cases) {
-        const data = JSON.parse(cases);
-        data.splice(number, 1);
+        function createTodoElement(text, completed = false) {
+            const li = document.createElement('li');
+            li.className = 'todo-item';
+            if (completed) li.classList.add('completed');
 
-        localStorage.setItem("cases", JSON.stringify(data));
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = completed;
+            checkbox.addEventListener('change', () => {
+                li.classList.toggle('completed');
+                saveTodos();
+            });
+            const span = document.createElement('span');
+            span.textContent = text;
+            span.className = 'todo-text';
 
-        printTable(data);
-    }
-}
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', () => {
+                li.remove();
+                saveTodos();
+            });
 
-function printTable(caseArray) {
-    const table = document.getElementById("casesTable");
-    table.innerHTML = "";
+            li.appendChild(checkbox);
+            li.appendChild(span);
+            li.appendChild(deleteButton);
 
-    for (let i = 0; i < casesArray.length; i++) {
-        const cases = caseArray[i];
-        const row = `<tr>
-                        <th scope="row">${i + 1}</th>
-                        <td>${user.case}</td>
-                        <td>${user.date}</td>
-                        <td><button onclick="deleteUser('${i}')" class="btn btn-danger">Delete</button></td>
-                    </tr>`;
-        table.innerHTML += row;
-    }
-}
+            todoList.appendChild(li);
+        }
 
-function saveCase(cases) {
-    const json = localStorage.getItem("users");
-    const cases = json ? JSON.parse(json) : [];
+        addTodoButton.addEventListener('click', () => {
+            const text = todoInput.value.trim();
+            if (text) {
+                createTodoElement(text);
+                saveTodos();
+                todoInput.value = '';
+            }
+        });
 
-    users.push(cases);
-    localStorage.setItem("users", JSON.stringify(cases));
-    printTable(cases);
-}
+        clearListButton.addEventListener('click', () => {
+            todoList.innerHTML = '';
+            saveTodos();
+        });
 
-function addUserHanlder(event) {
-    event.preventDefault();
-    const user = {};
-
-    user["case"] = event.target["case"].value;
-    user["date"] = event.target["date"].value;
-    
-    event.target.reset(); // очистка форми
-
-    saveCase(cases);
-}
-
-loadCases();
-
-// printTable([
-//     {name: "John", surname: "Smith", email: "user@gmail.com", phone: "463654654"},
-//     {name: "Mike", surname: "Tyson", email: "mike@gmail.com", phone: "1436365664"}]);
-
-function teoria() {
-    // робота з local storage
-
-    // запис
-    localStorage.setItem("user", "email@email.com");
-
-    const user2 = {
-        email: "user@email.com",
-        name: "John",
-        surname: "Smith",
-    };
-
-    // JSON.stringify(object) -> перетворює об'єкт у JSON
-    localStorage.setItem("object", JSON.stringify(user2));
-
-    // читання
-    const user = localStorage.getItem("userData");
-    if (user != null) {
-        console.log(user);
-    } else {
-        localStorage.setItem("userData", "user 6.12");
-    }
-
-    // JSON.parse(json) -> перетворює JSON у об'єкт
-    const user2data = JSON.parse(localStorage.getItem("object"));
-    console.log(user2data);
-
-    // видалення
-    localStorage.removeItem();
-}
+        loadTodos();
