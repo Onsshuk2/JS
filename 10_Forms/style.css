@@ -1,0 +1,59 @@
+.form-container
+{
+    margin: 25%;
+    
+    
+}
+
+#colorPalette {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.colorBox {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 20% ;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+#textColor
+{
+    
+    text-align: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 200px 200px ;
+}
+
+.form-container {
+    text-align: center; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    width: 60%; 
+}
+
+form label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="number"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #495057; 
+}
+
