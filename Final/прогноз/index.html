@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather forecast</title>
+    <link rel="icon" type="image/png" href="/landscape-painting-pink-sunset-thumb.jpg">
+    <script src="/Final/lib/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Weather forecast</h1>
+            <input type="text" id="city-input" placeholder="Enter the name of the city...">
+        </header>
+        <nav>
+            <button id="today-tab" class="tab active">Today</button>
+            <button id="forecast-tab" class="tab">5-day forecast</button>
+        </nav>
+        <main id="content"></main>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
